@@ -9,7 +9,7 @@ const Projects = () => {
     {
       title: 'TripSaver - AI-Powered Trip Planner',
       description: 'Intelligent trip planning application leveraging LLMs and computer vision for personalized travel recommendations and budget optimization.',
-      image: '/projects/tripsaver/demo.mp4',
+      image: new URL('/projects/tripsaver/demo.mp4', import.meta.url).href,
       isVideo: true,
       techStack: ['Python', 'PyTorch', 'Hugging Face', 'React', 'AWS'],
       achievements: [
@@ -66,7 +66,7 @@ const Projects = () => {
     {
       title: 'MLB Stat Predictor',
       description: 'Machine learning project that predicts next season MLB player performance using XGBoost and Neural Networks with historical data from 2000-2025.',
-      image: '/projects/mlb-predictor.jpg',
+      image: new URL('/projects/mlb-predictor.jpg', import.meta.url).href,
       isVideo: false,
       techStack: ['Python', 'XGBoost', 'TensorFlow', 'Scikit-Learn', 'Streamlit'],
       achievements: [

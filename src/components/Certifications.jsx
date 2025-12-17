@@ -15,7 +15,7 @@ const Certifications = () => {
     {
       name: 'PyTorch for Deep Learning',
       issuer: 'DeepLearning.AI',
-      logo: '/deeplearning-logo.png',
+      logo: new URL('/deeplearning-logo.png', import.meta.url).href,
       verifyLink: 'https://www.coursera.org/account/accomplishments/specialization/6K9J3DGYXZWJ',
       color: 'from-red-500 to-orange-500',
       id: 'SAT-02'
@@ -23,7 +23,7 @@ const Certifications = () => {
     {
       name: 'Machine Learning Specialization',
       issuer: 'DeepLearning.AI',
-      logo: '/deeplearning-logo.png',
+      logo: new URL('/deeplearning-logo.png', import.meta.url).href,
       verifyLink: 'https://www.coursera.org/account/accomplishments/specialization/X1PG4CF54FK7',
       color: 'from-blue-500 to-cyan-500',
       id: 'SAT-03'
@@ -31,7 +31,7 @@ const Certifications = () => {
     {
       name: 'Machine Learning In Production',
       issuer: 'DeepLearning.AI',
-      logo: '/deeplearning-logo.png',
+      logo: new URL('/deeplearning-logo.png', import.meta.url).href,
       verifyLink: 'https://www.coursera.org/account/accomplishments/verify/LZOEYFHVLI3P',
       color: 'from-purple-500 to-pink-500',
       id: 'SAT-04'
