@@ -54,21 +54,14 @@ const Certifications = () => {
                 key={index}
                 className="group"
               >
-                {/* Floating satellite */}
-                <motion.div
-                  className="relative"
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 5 + index, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
-                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                >
+                {/* Satellite */}
+                <div className="relative">
                   
                   {/* Main satellite chassis */}
                   <div className="relative">
                     {/* Energy field glow */}
-                    <motion.div
-                      className={`absolute inset-0 bg-gradient-to-r ${cert.color} opacity-0 group-hover:opacity-30 blur-3xl rounded-xl transition-all duration-500`}
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 3, repeat: Infinity }}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-r ${cert.color} opacity-0 group-hover:opacity-20 blur-3xl rounded-xl transition-all duration-700`}
                     />
                     
                     {/* Solar panels - left wing */}
@@ -87,7 +80,7 @@ const Certifications = () => {
                         <motion.div
                           className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
                           animate={{ x: ["-100%", "200%"] }}
-                          transition={{ duration: 4, repeat: Infinity, repeatDelay: 3 }}
+                          transition={{ duration: 6, repeat: Infinity, repeatDelay: 5 }}
                         />
                       </div>
                     </div>
@@ -113,38 +106,12 @@ const Certifications = () => {
                       </div>
                     </div>
                     
-                    {/* Rotating communication dish */}
-                    <div className="absolute -top-16 left-1/2 -translate-x-1/2">
-                      <div className="w-1 h-10 bg-gradient-to-t from-gray-500 to-transparent" />
-                      <motion.div
-                        className="absolute -top-2 left-1/2 -translate-x-1/2"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                      >
-                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${cert.color} opacity-60 border-2 border-gray-600`}>
-                          {/* Dish interior */}
-                          <div className="absolute inset-2 rounded-full bg-gray-900 border border-gray-700" />
-                          <div className="absolute inset-4 rounded-full bg-gray-800" />
-                        </div>
-                      </motion.div>
-                      {/* Broadcasting waves */}
-                      {[0, 1, 2].map((i) => (
-                        <motion.div
-                          key={i}
-                          className={`absolute -top-2 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-2`}
-                          style={{ borderColor: cert.color.includes('orange') ? '#f97316' : cert.color.includes('red') ? '#ef4444' : cert.color.includes('blue') ? '#06b6d4' : '#a855f7' }}
-                          animate={{ scale: [1, 3], opacity: [0.6, 0] }}
-                          transition={{ duration: 2, repeat: Infinity, delay: i * 0.7 }}
-                        />
-                      ))}
-                    </div>
-                    
                     {/* Main body with 3D effect */}
                     <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl border-2 border-gray-600 p-6 shadow-2xl overflow-hidden backdrop-blur-sm">
                       {/* Metallic shine */}
                       <motion.div
                         className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/5 to-transparent"
-                        animate={{ opacity: [0.05, 0.15, 0.05] }}
+                        animate={{ opacity: [0.05, 0.1, 0.05] }}
                         transition={{ duration: 3, repeat: Infinity }}
                       />
                       
@@ -209,7 +176,7 @@ const Certifications = () => {
                       </a>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             ))}
 
