@@ -60,7 +60,7 @@ const Projects = () => {
         demo: 'https://engine-failure.onrender.com/',
         github: 'https://github.com/evanpetersen919/Engine-Failure'
       },
-      tags: ['ML', 'School'],
+      tags: ['ML'],
       gradient: 'from-green-500 to-emerald-500'
     },
     {
