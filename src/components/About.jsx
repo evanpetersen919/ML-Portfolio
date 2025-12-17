@@ -48,38 +48,8 @@ const About = () => {
 
   return (
     <section className="py-20 gradient-bg text-white px-6 relative overflow-hidden">
-      {/* Digital rain effect */}
-      <div className="absolute inset-0 pointer-events-none opacity-10">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-purple-400 font-mono text-xs"
-            style={{
-              left: `${(i * 5)}%`,
-              top: -20
-            }}
-            animate={{
-              y: ['0vh', '110vh']
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "linear"
-            }}
-          >
-            {Math.random().toString(36).substring(7)}
-          </motion.div>
-        ))}
-      </div>
-
       <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <div className="flex items-center justify-center gap-3 mb-12">
             <motion.div
               animate={{ 
@@ -108,10 +78,6 @@ const About = () => {
               return (
                 <motion.div
                   key={panel.id}
-                  initial={{ opacity: 0, y: 50, rotateX: -15 }}
-                  whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2, duration: 0.6 }}
                   whileHover={{ y: -10 }}
                   onHoverStart={() => setHoveredPanel(index)}
                   onHoverEnd={() => setHoveredPanel(null)}
@@ -206,7 +172,7 @@ const About = () => {
               );
             })}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

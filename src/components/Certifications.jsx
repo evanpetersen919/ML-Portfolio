@@ -41,12 +41,7 @@ const Certifications = () => {
   return (
     <section className="py-20 pb-32 gradient-bg text-white px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <div className="flex items-center justify-center gap-3 mb-12">
             <Radio size={32} className="text-purple-400" />
             <h2 className="text-4xl font-bold">Certifications & Credentials</h2>
@@ -55,12 +50,8 @@ const Certifications = () => {
           {/* Satellite Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
             {certifications.map((cert, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15, duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
                 className="group"
               >
                 {/* Floating satellite */}
@@ -219,7 +210,7 @@ const Certifications = () => {
                     </div>
                   </div>
                 </motion.div>
-              </motion.div>
+              </div>
             ))}
 
             {/* Connection lines */}
@@ -249,7 +240,7 @@ const Certifications = () => {
               })}
             </svg>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

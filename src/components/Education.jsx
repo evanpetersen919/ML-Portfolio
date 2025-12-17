@@ -1,10 +1,13 @@
 import React from 'react';
 import { GraduationCap, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useInView } from '../hooks/useInView';
 
 const Education = () => {
+  const [ref, isInView] = useInView({ threshold: 0.2 });
+  
   return (
-    <section id="education" className="py-20 pb-40 gradient-bg text-white px-6 overflow-hidden">
+    <section ref={ref} id="education" className="py-20 pb-40 gradient-bg text-white px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,28 +61,30 @@ const Education = () => {
               </div>
             </motion.div>
 
-            {/* Rocket */}
-            <motion.div
-              className="absolute"
-              initial={{ offsetDistance: "0%", opacity: 0 }}
-              whileInView={{ offsetDistance: "100%", opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1, duration: 3.5, ease: [0.45, 0, 0.55, 1] }}
-              style={{ 
-                offsetPath: "path('M 50 350 Q 200 200, 350 250 T 650 100')",
-                zIndex: 3 
-              }}
-            >
+            {/* Rocket - only animate when in view */}
+            {isInView && (
               <motion.div
-                animate={{ rotate: [0, -3, 0, 3, 0] }}
-                transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute"
+                initial={{ offsetDistance: "0%", opacity: 0 }}
+                whileInView={{ offsetDistance: "100%", opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1, duration: 3.5, ease: [0.45, 0, 0.55, 1] }}
+                style={{ 
+                  offsetPath: "path('M 50 350 Q 200 200, 350 250 T 650 100')",
+                  zIndex: 3 
+                }}
               >
+                <motion.div
+                  animate={{ rotate: [0, -3, 0, 3, 0] }}
+                  transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+                >
                 <Rocket size={36} className="text-purple-400 transform rotate-45" />
                 {/* Rocket Trail */}
                 <div className="absolute -left-8 top-4 w-8 h-1 bg-gradient-to-r from-orange-500 to-transparent opacity-70" />
                 <div className="absolute -left-6 top-3 w-6 h-1 bg-gradient-to-r from-yellow-400 to-transparent opacity-50" />
               </motion.div>
             </motion.div>
+            )}
 
             {/* CSUSM Planet (Destination) */}
             <motion.div

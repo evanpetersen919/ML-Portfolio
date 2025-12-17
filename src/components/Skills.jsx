@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Code2, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useInView } from '../hooks/useInView';
 
 const Skills = () => {
+  const [ref, isInView] = useInView({ threshold: 0.1 });
   const [activeFilter, setActiveFilter] = useState('All');
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [selectedPlanet, setSelectedPlanet] = useState(null);
@@ -93,29 +95,31 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 gradient-bg text-white px-6 overflow-hidden relative">
-      {/* Animated background particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-purple-500/20 rounded-full"
-            initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: Math.random() * window.innerHeight 
-            }}
-            animate={{ 
-              y: [null, Math.random() * window.innerHeight],
-              x: [null, Math.random() * window.innerWidth],
-            }}
-            transition={{ 
-              duration: Math.random() * 10 + 10, 
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          />
-        ))}
-      </div>
+    <section ref={ref} id="skills" className="py-20 gradient-bg text-white px-6 overflow-hidden relative">
+      {/* Animated background particles - only animate when in view */}
+      {isInView && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-purple-500/20 rounded-full"
+              initial={{ 
+                x: Math.random() * window.innerWidth, 
+                y: Math.random() * window.innerHeight 
+              }}
+              animate={{ 
+                y: [null, Math.random() * window.innerHeight],
+                x: [null, Math.random() * window.innerWidth],
+              }}
+              transition={{ 
+                duration: Math.random() * 10 + 10, 
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div

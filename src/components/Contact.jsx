@@ -210,12 +210,7 @@ const Contact = () => {
 
         {/* Main content on planet surface */}
         <div className="relative z-10 max-w-4xl mx-auto px-6 pt-20 pb-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <div className="flex items-center justify-center gap-3 mb-12">
               <Rocket size={32} className="text-purple-400" />
               <h2 className="text-4xl font-bold text-white">Contact</h2>
@@ -312,12 +307,8 @@ const Contact = () => {
             </div>
 
             {/* Quick Contact Info - Satellite Communication Panel */}
-            <motion.div 
+            <div 
               className="mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
             >
               <div className="bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-xl p-6 border-2 border-cyan-400/40 shadow-2xl relative overflow-hidden">
                 {/* Animated grid background */}
@@ -438,8 +429,8 @@ const Contact = () => {
                   />
                 ))}
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
 
         {/* Additional surface elements */}
@@ -576,7 +567,7 @@ const Contact = () => {
               Back to Top ↑
             </button>
           </div>
-          </div>
+        </div>
         </div>
         </div>
       </div>

@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Hero from './components/Hero';
-import Certifications from './components/Certifications';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import About from './components/About';
-import Education from './components/Education';
-import Contact from './components/Contact';
+
+// Lazy load heavy components
+const About = lazy(() => import('./components/About'));
+const Skills = lazy(() => import('./components/Skills'));
+const Projects = lazy(() => import('./components/Projects'));
+const Education = lazy(() => import('./components/Education'));
+const Certifications = lazy(() => import('./components/Certifications'));
+const Contact = lazy(() => import('./components/Contact'));
 
 function App() {
-  // Generate random particles
-  const particles = [...Array(50)].map((_, i) => ({
+  // Reduced particles for better performance
+  const particles = [...Array(30)].map((_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -61,12 +63,14 @@ function App() {
       {/* Main Content */}
       <main className="relative z-10">
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Certifications />
-        <Contact />
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <About />
+          <Skills />
+          <Projects />
+          <Education />
+          <Certifications />
+          <Contact />
+        </Suspense>
       </main>
     </div>
   );

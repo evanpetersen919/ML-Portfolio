@@ -94,12 +94,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 gradient-bg text-white px-6">
       <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <div className="flex items-center justify-center gap-3 mb-8">
             <Rocket size={32} className="text-purple-400" />
             <h2 className="text-4xl font-bold">Featured Projects</h2>
@@ -126,12 +121,8 @@ const Projects = () => {
           {/* Project Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
                 className="bg-dark-surface rounded-xl border border-dark-border overflow-hidden card-hover flex flex-col"
               >
                 {/* Gradient Header */}
@@ -220,10 +211,10 @@ const Projects = () => {
                     )}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
