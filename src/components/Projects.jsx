@@ -27,7 +27,7 @@ const Projects = () => {
     },
     {
       title: 'NIH Chest Disease Classifier',
-      description: 'Deep learning model for multi-label chest X-ray classification using transfer learning and attention mechanisms.',
+      description: 'Multi-label chest X-ray classification trained with ResNet50 from scratch, achieving AUC-ROC 0.793 through patient-aware data splitting and class-weighted optimization.',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=600&fit=crop&q=80',
       isVideo: false,
       techStack: ['Python', 'PyTorch', 'Scikit-Learn', 'Streamlit'],
