@@ -96,31 +96,6 @@ const Skills = () => {
 
   return (
     <section ref={ref} id="skills" className="py-20 gradient-bg text-white px-6 overflow-hidden relative">
-      {/* Animated background particles - only animate when in view */}
-      {isInView && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(15)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-purple-500/20 rounded-full"
-              initial={{ 
-                x: Math.random() * window.innerWidth, 
-                y: Math.random() * window.innerHeight 
-              }}
-              animate={{ 
-                y: [null, Math.random() * window.innerHeight],
-                x: [null, Math.random() * window.innerWidth],
-              }}
-              transition={{ 
-                duration: Math.random() * 10 + 10, 
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            />
-          ))}
-        </div>
-      )}
-
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -327,14 +302,12 @@ const Skills = () => {
                       transition={{ duration: 2, repeat: Infinity }}
                     />
 
-                    {/* Planet surface with rotating texture */}
-                    <motion.div
+                    {/* Planet surface */}
+                    <div
                       className="absolute inset-2 rounded-full shadow-2xl overflow-hidden"
                       style={{
                         background: `radial-gradient(circle at 30% 30%, ${getPlanetColor(skill.category)[0]}, ${getPlanetColor(skill.category)[1]}, ${getPlanetColor(skill.category)[2]})`
                       }}
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 30 + index * 2, repeat: Infinity, ease: "linear" }}
                     >
                       {/* Planet craters/details */}
                       <div className="absolute inset-0 opacity-20">
@@ -353,15 +326,8 @@ const Skills = () => {
                       </div>
 
                       {/* Light reflection */}
-                      <motion.div 
-                        className="absolute top-2 left-2 w-8 h-8 rounded-full bg-white/40 blur-md"
-                        animate={{
-                          opacity: [0.3, 0.6, 0.3],
-                          scale: [1, 1.2, 1]
-                        }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                      />
-                    </motion.div>
+                      <div className="absolute top-2 left-2 w-8 h-8 rounded-full bg-white/40 blur-md" />
+                    </div>
 
                     {/* Icon on planet surface */}
                     <div className="absolute inset-0 flex items-center justify-center z-10">
